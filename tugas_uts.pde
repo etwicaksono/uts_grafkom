@@ -1,6 +1,6 @@
 void setup(){
 size(720,480);
-  
+
 }
 
 //timeline
@@ -25,7 +25,7 @@ void timeline(){
     msch = false;
   }
   ms += 1;
-  
+
   if (ms==60){
     ms = 0;
   }
@@ -37,6 +37,10 @@ smooth();
 background(255);
 
 timeline();
+if(tl<10){
+malam();}else{
+ siang();
+}
 laut();
 pantai();
 pulau();
@@ -104,7 +108,7 @@ void rumput(float x, float y, float a, float gril, float grir){
   }else{
     left = false;
   }
-  
+
   if (left == true){//main
   if (tl % 2 == 0){
       triangle(x,y,x+2,y-a,x+4,y);
@@ -118,8 +122,8 @@ void rumput(float x, float y, float a, float gril, float grir){
       triangle(x,y,x+grir,y-a,x+4,y);
     }
   }
-  
-  
+
+
 //===============
       //if (tl < 2){
       //  if (tl % 2 == 0){
@@ -150,7 +154,7 @@ void kapal(){
     left = false;
     xaxis = xaxis + speed;
   }
-  
+
   if(left==true){
     //kapal angin darat
     fill(#F203FF);
@@ -184,7 +188,7 @@ void angin(){
     left = false;
     xaxis2 = xaxis2 + speed2;
   }
-  
+
   if(left==true){
    float i = 0;
    while(i < 1){
@@ -222,6 +226,204 @@ void angin(){
     xaxis2 = 0;
    }
   }
+}
+
+void bintang1(){
+  fill(255);
+  ellipse(15,20,4,3);
+  ellipse(35,40,4,5);
+  ellipse(100,18,4,3);
+  ellipse(67,35,4,3);
+  ellipse(48,29,4,3);
+  ellipse(120,35,4,5);
+  ellipse(140,60,4,4);
+  ellipse(170,40,4,5);
+  ellipse(210,30,4,3);
+  ellipse(230,50,3,5);
+  ellipse(258,37,4,3);
+  ellipse(279,20,4,5);
+  ellipse(290,60,4,4);
+  ellipse(370,40,4,3);
+  ellipse(410,30,4,5);
+  ellipse(430,50,4,3);
+  ellipse(460,40,4,3);
+  ellipse(480,20,4,3);
+  ellipse(510,30,4,5);
+  ellipse(530,50,4,3);
+  ellipse(560,40,4,3);
+  ellipse(580,20,4,3);
+  ellipse(610,30,4,5);
+  ellipse(630,50,4,3);
+  ellipse(660,40,4,3);
+  ellipse(680,20,4,3);
+}
+
+void bintang2(){
+  fill(#2D2950);
+  ellipse(15,20,4,3);
+  ellipse(35,40,4,5);
+  ellipse(100,18,4,3);
+  ellipse(67,35,4,3);
+  ellipse(48,29,4,3);
+  ellipse(120,35,4,5);
+  ellipse(140,60,4,4);
+  ellipse(170,40,4,5);
+  ellipse(210,30,4,3);
+  ellipse(230,50,3,5);
+  ellipse(258,37,4,3);
+  ellipse(279,20,4,5);
+  ellipse(290,60,4,4);
+  ellipse(370,40,4,3);
+  ellipse(410,30,4,5);
+  ellipse(430,50,4,3);
+  ellipse(460,40,4,3);
+  ellipse(480,20,4,3);
+  ellipse(510,30,4,5);
+  ellipse(530,50,4,3);
+  ellipse(560,40,4,3);
+  ellipse(580,20,4,3);
+  ellipse(610,30,4,5);
+  ellipse(630,50,4,3);
+  ellipse(660,40,4,3);
+  ellipse(680,20,4,3);
+}
+float var;
+float MoonSpeed = 0.5;
+void malam(){
+  int d;
+    d=second();
+    background(#2D2950);
+    if(d > 0){
+      bintang1();
+    }
+    if(d > 2){
+      bintang2();
+    }
+    if(d > 6){
+      bintang1();
+    }
+    if(d > 8){
+      bintang2();
+    }
+    if(d > 10){
+      bintang1();
+    }
+    if(d > 12){
+      bintang2();
+    }
+    if(d > 14){
+      bintang1();
+    }
+    if(d > 16){
+      bintang2();
+    }
+    if(d > 18){
+      bintang1();
+    }
+    if(d > 20){
+      bintang1();
+    }
+    if(d > 22){
+      bintang2();
+    }
+    if(d > 24){
+      bintang1();
+    }
+    if(d > 26){
+      bintang2();
+    }
+    if(d > 28){
+      bintang1();
+    }
+    if(d > 30){
+      bintang1();
+    }
+    if(d > 32){
+      bintang2();
+    }
+    if(d > 34){
+      bintang1();
+    }
+    if(d > 36){
+      bintang2();
+    }
+    if(d > 38){
+      bintang1();
+    }
+    if(d > 40){
+      bintang1();
+    }
+    if(d > 42){
+      bintang2();
+    }
+    if(d > 44){
+      bintang1();
+    }
+    if(d > 46){
+      bintang2();
+    }
+    if(d > 48){
+      bintang1();
+    }
+    if(d > 50){
+      bintang1();
+    }
+    if(d > 52){
+      bintang2();
+    }
+    if(d > 54){
+      bintang1();
+    }
+    if(d > 56){
+      bintang2();
+    }
+    if(d > 58){
+      bintang1();
+    }
+    if(d > 60){
+      bintang1();
+    }
+    noStroke();
+
+    //bulan
+    var = var + MoonSpeed;
+    fill(#DEBB70);
+    ellipse(75,70+var,100,100);
+
+    if ( var > 360){
+      MoonSpeed = 0;
+  }
+  //bintang
+  noFill();
+  strokeWeight(5);
+}
+float car;
+float cloudspeed = 1;
+void siang(){
+  background(#6AD1FF);
+   fill(#606421);
+   noStroke();
+
+    //matahari
+    car = car + cloudspeed;
+    fill(222+50,222,0);
+    ellipse(100,250-car,100,100);
+
+    if( car > 180){
+      cloudspeed = 0;
+    }
+
+    //awan
+    fill(#E8EFF5);
+    ellipse(450-car,50,70,45);
+    ellipse(500-car,50,85,65);
+    ellipse(540-car,50,70,35);
+    ellipse(700-car,100,80,50);
+    ellipse(750-car,100,95,75);
+    ellipse(780-car,100,80,55);
+    ellipse(815-car,100,75,40);
+    ellipse(250-car,100,80,35);
+    ellipse(300-car,100,80,45);
 }
 
 //garis bantu
