@@ -1,5 +1,7 @@
+PFont acaslon40;
 void setup(){
 size(720,480);
+acaslon40 = loadFont("ACaslonPro-SemiboldItalic-40.vlw");
 
 }
 
@@ -48,7 +50,26 @@ rumah();
 pohon();
 kapal();
 angin();
-//grid();
+grid();
+runningText("Angin Darat",50,100,#FAF312);
+}
+
+
+//vertical runnning text
+float y_start = 0;
+float x_start = 50;
+void runningText(String target, float x_stop, float y_stop, int cl){
+  float t = 100;
+  float s = y_stop - y_start;
+  if (tl < 4){
+    textFont(acaslon40);
+    fill(cl);
+    text(target,x_start,y_start += (s/t));
+  }else{
+    textFont(acaslon40);
+    fill(cl);
+    text(target,x_start -= (s/t),y_stop);
+  }
 }
 
 //laut
@@ -121,23 +142,6 @@ void rumput(float x, float y, float a, float gril, float grir){
       triangle(x,y,x+grir,y-a,x+4,y);
     }
   }
-
-
-//===============
-      //if (tl < 2){
-      //  if (tl % 2 == 0){
-      //    triangle(x,y,x+2,y-a,x+4,y);
-      //  }else{
-      //    triangle(x,y,x-gril,y-a,x+4,y);
-      //  }
-      //}else{
-      //  if (tl % 2 == 0){
-      //    triangle(x,y,x+2,y-a,x+4,y);
-      //  }else{
-      //    triangle(x,y,x+grir,y-a,x+4,y);
-      //  }
-      //}
-//=======================
 }
 
 //kapal
@@ -259,6 +263,7 @@ void bintang1(){
 
 void bintang2(){
   fill(#2D2950);
+  noStroke();
   ellipse(15,20,4,3);
   ellipse(35,40,4,5);
   ellipse(100,18,4,3);
@@ -427,6 +432,8 @@ void siang(){
 
 //garis bantu
 void grid(){
+  strokeWeight(1);
+  stroke(0);
   for(int i = 0;i<=width;i+=50){
   line(i,0,i,height);
   line(0,i,width,i);
