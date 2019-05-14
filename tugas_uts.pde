@@ -1,7 +1,9 @@
 PFont acaslon40;
+PFont arial15;
 void setup(){
 size(720,480);
 acaslon40 = loadFont("ACaslonPro-SemiboldItalic-40.vlw");
+arial15 = loadFont("Arial-Black-15.vlw");
 
 }
 
@@ -39,7 +41,7 @@ smooth();
 background(255);
 
 timeline();
-if(tl<10){
+if(left == true){
 malam();}else{
 siang();
 }
@@ -50,8 +52,10 @@ rumah();
 pohon();
 kapal();
 angin();
-grid();
-runningText("Angin Darat",50,100,#FAF312);
+//grid();
+if (tl <= 13){runningText("Angin Darat",50,100,#FAF312);}
+if (tl == 13){ left = false; y_start = 0; x_start=50;}
+if (tl > 13){runningText("Angin Laut",50,100,#000000);}
 }
 
 
@@ -61,15 +65,17 @@ float x_start = 50;
 void runningText(String target, float x_stop, float y_stop, int cl){
   float t = 100;
   float s = y_stop - y_start;
-  if (tl < 4){
+  if (y_start <= y_stop - 5){
     textFont(acaslon40);
     fill(cl);
     text(target,x_start,y_start += (s/t));
   }else{
     textFont(acaslon40);
     fill(cl);
-    text(target,x_start -= (s/t),y_stop);
+    text(target,x_start -= 15 * (s/t),y_stop);
   }
+  
+  //text(tl,240,250);
 }
 
 //laut
@@ -123,12 +129,6 @@ void rumput(float x, float y, float a, float gril, float grir){
   if (msch == true){
     ms_gr += 1;
   }
-  if (tl < 10){
-    left = true;
-  }else{
-    left = false;
-  }
-
   if (left == true){//main
   if (tl % 2 == 0){
       triangle(x,y,x+2,y-a,x+4,y);
@@ -150,23 +150,25 @@ float xaxis3 = 0;
 float speed = 1;
 float speed3 = 1;
 void kapal(){
-  if (tl > 2 && tl < 10){
-    left = true;
+  if (left == true){
     xaxis = xaxis + speed;
-  }else if(tl>10 && tl < 18.5){
-    left = false;
+  }else{
     xaxis = xaxis + speed;
+    if(xaxis > 900){
+     speed = 0; 
+    }
   }
 
   if(left==true){
     //kapal angin darat
+    strokeWeight(1);
     fill(#F203FF);
     quad(250-xaxis,375,275-xaxis,400,375-xaxis,400, 400-xaxis,375);
     line(325-xaxis,375,325-xaxis,275);
     triangle(325-xaxis,275,400-xaxis,370,325-xaxis,370);
     fill(#F203FF);
     arc(325-xaxis,370,150,190,-PI,-PI+HALF_PI);
-    fill(255);
+    fill(#2D2950);
     arc(325-xaxis,323,50,95,PI/2, 3*PI/2);
     }else{
     //kapal angin laut
@@ -176,7 +178,7 @@ void kapal(){
     triangle(-525+xaxis,275,-600+xaxis,370,-525+xaxis,370);
     fill(#F203FF);
     arc(-525+xaxis,370,150,190,-PI/2,0);
-    fill(255);
+    fill(#6AD1FF);
     arc(-525+xaxis,323,50,95,-PI/2,PI/2);
   }
 }
@@ -187,8 +189,7 @@ void angin(){
   if (tl < 9){
     left = true;
     xaxis2 = xaxis2 + speed2;
-  }else if(tl>8 && tl < 19){
-    left = false;
+  }else if(tl>8){
     xaxis2 = xaxis2 + speed2;
   }
 
@@ -411,9 +412,9 @@ void siang(){
     //matahari
     car = car + cloudspeed;
     fill(222+50,222,0);
-    ellipse(100,250-car,100,100);
+    ellipse(100,450-car,100,100);
 
-    if( car > 180){
+    if( car > 400){
       cloudspeed = 0;
     }
 
@@ -435,6 +436,10 @@ void grid(){
   strokeWeight(1);
   stroke(0);
   for(int i = 0;i<=width;i+=50){
+  fill(0);
+  textFont(arial15);
+  text(i, i+5, 15);
+  if(i > 0){text(i, 5, i-5);}
   line(i,0,i,height);
   line(0,i,width,i);
 }
