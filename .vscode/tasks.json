@@ -1,0 +1,23 @@
+// Tasks for processing and p5
+// only for Windows
+{
+    "version": "2.0.0",
+    "command": "cmd",
+    "type": "shell",
+    "reveal": "always",
+    "args": ["/C"],
+    "tasks": [{
+        "label": "1. Run processing sketch",
+        "group": {
+            "kind": "test",
+            "isDefault": true
+        },
+        "args": [
+            "processing-java",
+            "--force",
+            "--sketch=${workspaceRoot}",
+            "--output=${workspaceRoot}\\out",
+            "--run"
+        ]
+    }]
+}

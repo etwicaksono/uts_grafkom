@@ -39,7 +39,7 @@ background(255);
 timeline();
 if(tl<10){
 malam();}else{
- siang();
+siang();
 }
 laut();
 pantai();
@@ -99,7 +99,6 @@ stroke(#000000);
 float ms_gr = 0;
 boolean left = true;
 void rumput(float x, float y, float a, float gril, float grir){
-  text("gritr = "+ ms_gr, 100,150);
   if (msch == true){
     ms_gr += 1;
   }

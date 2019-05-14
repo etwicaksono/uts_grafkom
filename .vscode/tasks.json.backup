@@ -1,0 +1,55 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    // "version": "2.0.0",
+    // "tasks": [
+    //     {
+    //         "label": "echo",
+    //         "type": "shell",
+    //         "command": "echo Hello",
+    //         "group": {
+    //             "kind": "build",
+    //             "isDefault": true
+    //         }
+    //     }
+    // ]
+    "version": "2.0.0",
+    "tasks": [{
+            "label": "run",
+            "command": "processing-java",
+            "type": "shell",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "args": [
+                "--force",
+                "--sketch=${fileDirname}",
+                "--run"
+            ]
+        },
+        {
+            "label": "present",
+            "command": "processing-java",
+            "type": "shell",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "args": [
+                "--force",
+                "--sketch=${fileDirname}",
+                "--present"
+            ]
+        }
+    ]
+
+}
